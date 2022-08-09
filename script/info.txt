@@ -1,0 +1,30 @@
+VM1 : 34.105.194.201
+
+0xC4365486455AcC2fb5eFA2C3C6ADDc1f9A211b90
+
+geth --datadir data account new
+
+geth --datadir data init genesis.json
+
+geth --datadir data --networkid 15 --nat extip:34.105.194.201 --allow-insecure-unlock --http --http.addr 0.0.0.0 --http.corsdomain "*" --http.api "eth,admin,personal,miner, web3,net" --mine
+
+
+geth --datadir data attach http://localhost:8545
+
+geth --datadir data --networkid 15 --unlock 0
+personal.unlockAccount(eth.coinbase)
+eth.getBalance(eth.coinbase)
+
+extra:
+0x0000000000000000000000000000000000000000000000000000000000000000C4365486455AcC2fb5eFA2C3C6ADDc1f9A211b900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
+VM2: 35.234.135.48
+0x7275d3bdC18e997C6D1aaCF4Ed579f54a299c1fA
+geth --datadir data --networkid 15 --nat extip:35.234.135.48 --allow-insecure-unlock --http --http.addr 0.0.0.0 --http.corsdomain "*" --http.api "eth,admin,personal,miner, web3,net" --mine --bootnodes enode://5d369afd633b5511884b442e1349fcceb9487ae1651dcfe9f5af16fe462fde38d42fb59935954da88c3cd76c03d7a35de20ded9a36d67c7c516d86effc17f9af@34.105.194.201:30303
+
+Raspberry PI: 90.250.44.6
+0x5bFC8f9875A4d4AA2C6647265dE2529C1888cc82
+geth --datadir data --networkid 15 --allow-insecure-unlock --http --http.addr 0.0.0.0 --http.corsdomain "*" --http.api "eth,admin,personal,miner, web3,net" --mine --bootnodes enode://5d369afd633b5511884b442e1349fcceb9487ae1651dcfe9f5af16fe462fde38d42fb59935954da88c3cd76c03d7a35de20ded9a36d67c7c516d86effc17f9af@34.105.194.201:30303
+
+contract: 0xCD10B992fB6E00875DFfc67c1c3BC80c864da17D

@@ -1,0 +1,16 @@
+{
+  "name": "rpi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "truffle migrate --reset",
+    "compile": "truffle compile",
+    "test": "npx builder test",
+    "coverage": "npx builder coverage"
+  },
+  "dependencies": {
+    "truffle": "^5.5.20",
+    "web3": "^1.7.4"
+  },
+  "devDependencies": {}
+}
